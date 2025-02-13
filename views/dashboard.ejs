@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Kelas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<style>
+     .card-img-top {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-top: 15px;
+        }
+        .card {
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+</style>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-border bg-light p-3 shadow-lg ">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Kelas Kami</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto nav-underline">
+                  <li class="nav-item"><a class="nav-link" href="/students/dashboard">Dashboard</a></li>
+                  <li class="nav-item"><a class="nav-link" href="/schedules/jadwal">Jadwal</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                    <li class="nav-item"><form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+              </form></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5 text-center">
+        <h1 class="">Selamat Datang di Web Kelas</h1>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto dicta repellat quas sed, tempora explicabo officiis earum velit nisi possimus sit vel. Velit numquam mollitia distinctio maiores libero voluptatem incidunt!</p>
+        <!-- <a href="/students" class="btn btn-primary">Lihat Daftar Siswa</a> -->
+    </div>
+
+    <div class="container mt-5">
+        <div class="row">
+            <% students.forEach(student => { %>
+                <div class="col-md-4">
+                    <div class="card border-2 mb-4 shadow-lg">
+                        <img src="<%= student.photo %>" class="card-img-top mx-auto mt-3" alt="<%= student.name %>">
+                        <div class="card-body">
+                            <h5 class="card-title text-center"><%= student.name %></h5>
+                            <p class="card-text"><%= student.univ %></p>
+                            <p class="card-text">S1 - <%= student.prodi %></p>
+                            <p class="card-text">Tahun Angkatan <%= student.angkatan %></p>
+                            <p class="card-text">Instagram - <%= student.ig %></p>
+                            <p class="card-text">Facebook - <%= student.fb %></p>
+                            <p class="card-text">Bio - <%= student.bio %></p>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
